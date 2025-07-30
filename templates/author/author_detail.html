@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<a href="{% url 'author-create' %}"> <h3>Author qoshish </h3></a>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="row">{{ author.pk }}</th>
+      <td>{{ author.full_name }}</td>
+      <td>{{ author.birthday }}</td>
+      <td>{{ author.country }} $</td>
+
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

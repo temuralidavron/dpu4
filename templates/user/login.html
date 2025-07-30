@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+
+    {% csrf_token %}
+    <p>{{ form.as_p }}</p>
+    <button class="btn btn-success">send</button><br><br>
+</form>
+  <button style="width:100px; " class="btn btn-success">                                    <a style="color:black;" href="{% url 'forget' %}" >
+forget password</a></button><br><br><br>
+
+    <button style="width:100px; " class="btn btn-success">                                    <a style="color:black;" href="{% url 'register' %}" >
+Register</a></button>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">category</th>
+      <th scope="col">update</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="row">{{ product.pk }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }} $</td>
+      <td>{{ product.cat.name }} </td>
+      <td><a href="{% url 'update' product.pk %}">update</a></td>
+      <td><a href="{% url 'delete' product.pk %}">delete</a></td>
+
+
+
+  </tbody>
+</table>
+
+{% endblock %}

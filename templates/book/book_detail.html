@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<h1>Kitoblar</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">published_year</th>
+      <th scope="col">created_at</th>
+      <th scope="col">download</th>
+      <th scope="col">action</th>
+      <th scope="col">delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="row">{{ book.pk }}</th>
+      <td>{{ book.title }}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.price }} $</td>
+      <td>{{ book.published_year }} </td>
+      <td>{{ book.created_at }} </td>
+      {% if book.file %}
+      <td><a href="{{ book.file.url }}">Yuklash</a></td>
+      {% else %}
+      <p>pdf yo'q </p>
+      {% endif %}
+      {% if perms.book.change_book %}
+      <td><a class="btn btn-primary" href="{% url 'book-edit' book.pk %}">Update</a> </td>
+      {% endif %}
+      <td><a class="btn btn-primary" href="{% url 'book-delete' book.pk %}">Delete</a> </td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="{% url 'book-list' %}">Back</a>
+{% endblock %}

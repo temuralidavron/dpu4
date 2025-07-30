@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    {% if form.errors %}
+<p>xato bor </p>
+{% endif %}
+    {% csrf_token %}
+    <p>{{ form.as_p }}</p>
+    <button class="btn btn-success">send</button>
+</form>
+
+{% endblock %}

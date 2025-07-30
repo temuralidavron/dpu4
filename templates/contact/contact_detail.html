@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">detail</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="row">{{ contact.pk }}</th>
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.message }} $</td>
+      <td><a href="{% url 'update-contact' contact.slug %}">update</a></td>
+      <td><a href="{% url 'delete-contact' contact.slug %}">delete</a></td>
+
+
+
+  </tbody>
+</table>
+
+{% endblock %}

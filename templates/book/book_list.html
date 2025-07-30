@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<a href="{% url 'book-create' %}"> <h3>Kitoblar qoshish </h3></a>
+<a href="{% url 'author-list' %}"> <h3>Mualiflar </h3></a>
+
+
+<table class="table">
+  <a href="{% url 'excel' %}"> <h3>Excel </h3></a>
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">total</th>
+      <th scope="col">new_price</th>
+      <th scope="col">image</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for book in books %}
+
+    <tr>
+      <th scope="row">{{ book.pk }}</th>
+      <td>{{ book.title }}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.price }} $</td>
+      <td>{{ book.total_p }} </td>
+      <td>{{ book.new_price }} </td>
+      {% if book.image %}
+      <td><img src="{{ book.image.url }}" alt="bu rasm" width="200px"></td>
+      {% else %}
+      <td>salom</td>
+      {% endif %}
+      <td><a href="{% url 'book-detail' book.pk %}">Detail</a> </td>
+    </tr>
+{% empty %}
+<h3> {{ q }} Siz islagan malumot topilmadi </h3>
+{% endfor %}
+
+  </tbody>
+</table>
+
+{% include 'book/pagination.html' with books=books %}
+{% endblock %}

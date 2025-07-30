@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<a href="{% url 'profile-update' %}">Edit profile</a>
+<h2>Your profile welcome {{ profile.user.username }}!!!</h2>
+
+<pre>Bio:{{ profile.bio }}</pre>
+{% if profile.image %}
+
+      <img src="{{ profile.image.url }}" alt="bu rasm" width="200px">
+
+{% else %}
+      <img src="\media\profile\person.png" alt="bu rasm" width="200px">
+{% endif %}
+<h3>Nickname:{{ profile.nickname }}</h3>
+
+<h4>{{ profile.user.role }}</h4>
+<h3>{{ profile.user.email }}</h3>
+
+{% endblock %}

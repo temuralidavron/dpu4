@@ -1,0 +1,12 @@
+{% block content %}
+    <h3>Siz rostan ham <span style="text-decoration: underline; color: #0d6efd">{{ book.title }}</span>ni o'chirshni hohlaysizmi </h3>
+
+
+
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Ok</button>
+</form>
+<a href="{% url 'book-detail' book.pk %}">No</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">detail</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+{% for contact in contacts %}
+
+    <tr>
+      <th scope="row">{{ contact.pk }}</th>
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.message }} $</td>
+      <td><a href="{% url 'detail-contact' contact.slug %}">detail</a></td>
+
+
+{% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
