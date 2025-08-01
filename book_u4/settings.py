@@ -107,17 +107,17 @@ WSGI_APPLICATION = 'book_u4.wsgi.application'
 #         "PORT": "5432",
 #     }
 # }
-DATABASES = {
-    'default': env.db(),  # DATABASE_URL ni o'qib beradi
-}
-
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#     'default': env.db(),  # DATABASE_URL ni o'qib beradi
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
